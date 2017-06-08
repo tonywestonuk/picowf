@@ -3,6 +3,7 @@
 	<name>PicoROOT</name>
 	<comment></comment>
 	<projects>
+		<project>PicoWF</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
