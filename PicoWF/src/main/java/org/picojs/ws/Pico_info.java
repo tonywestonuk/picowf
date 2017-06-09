@@ -23,13 +23,11 @@ public class Pico_info extends HttpServlet{
 
 	
 	@Override
-		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		JsonStringWriter jbld= JsonWriter.string();
 		jbld.object();		
-		
-	
+
 		Enumeration<String> en =  req.getServletContext().getInitParameterNames();
 		while (en.hasMoreElements()) {	
 			String parm = (String) en.nextElement();
@@ -38,17 +36,11 @@ public class Pico_info extends HttpServlet{
 			}
 		}
 		
-		String serverURL = req.getServletContext().getInitParameter("serverUrl");
-		
-		jbld.value("pico_serverUrl",serverURL+req.getContextPath());
-		
-		
-		
+		String serverURL = req.getServletContext().getInitParameter("serverUrl");		
+		jbld.value("pico_serverUrl",serverURL+req.getContextPath());	
 	
 		jbld.end();
-		
 		resp.setContentType("application/json");
-
 		resp.getWriter().println(jbld.done());
 		}
 	
