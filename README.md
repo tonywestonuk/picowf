@@ -15,6 +15,7 @@ PicoRootSpringBoot - the same application packaged as a Spring Boot stand alone 
 
 ### Example Hello World
 PicoHelloWorld - A Pico enabled JavaEE web Application
+
 PicoHelloWorldSpringBoot - A pico enabled Spring Boot web application.
 
 
