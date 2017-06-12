@@ -13,7 +13,8 @@ PicoRootSpringBoot - the same application packaged as a Spring Boot stand alone 
 
 
 ### Example Hello World
-PicoSpringBoot - A pico enabled Spring Boot web application.
+PicoHelloWorld - A Pico enabled JavaEE web Application
+PicoHelloWorldSpringBoot - A pico enabled Spring Boot web application.
 
 
 ## Getting Started
@@ -31,7 +32,9 @@ PicoSpringBoot - A pico enabled Spring Boot web application.
 1) Run PicoRootSpringBoot jar.  ( java -jar PicoRootSpringBoot/target/gs-spring-boot-0.1.9.jar )
 navigate to http://localhost:8712 to show an Empty Pico Root application project.
 
-2) Run PicoRootSpringBootHelloworld 
+2) Run PicoHelloWorldSpringBoot  (java -jar PicoHelloWorldSpringBoot/target/gs-spring-boot-0.1.9.jar)
+Now refresh http://localhost:8712    You will see the Hello World application has installed into the PicoRoot application.
+
 
 ## Authors
 
