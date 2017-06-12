@@ -59,7 +59,7 @@ Now refresh http://localhost:8712    You will see the Hello World application ha
 
 ## License
 
-This project is licensed under the Apache Public License. - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the Apache Public License. - see the [LICENSE-2.0.txt](LICENSE-2.0.txt) file for details
 
 ## Acknowledgments
 
