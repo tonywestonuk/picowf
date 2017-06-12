@@ -1,0 +1,4 @@
+<Context>
+	<Parameter name="pico_serviceType" value="helloWorld"/>
+	<Parameter name="pico_menuName" value="Hello World"/>
+</Context>

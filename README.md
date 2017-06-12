@@ -18,9 +18,20 @@ PicoSpringBoot - A pico enabled Spring Boot web application.
 
 ## Getting Started
 
+### With Java EE
+
+1) Place PicoROOT/target/ROOT.war file in the webapps directory of your servlet container, and navigate to http://localhost:8080 . This will show an Empty Pico root application as there is no modules currently running.
 
 
+2) Place PicoHelloWorld/target/PicoHelloWorld.war also into the webapps directory.    Now refresh http://localhost:8080   You will see the Hello World application has installed into the PicoRoot application.
 
+
+### With Spring Boot.
+
+1) Run PicoRootSpringBoot jar.  ( java -jar PicoRootSpringBoot/target/gs-spring-boot-0.1.9.jar )
+navigate to http://localhost:8712 to show an Empty Pico Root application project.
+
+2) Run PicoRootSpringBootHelloworld 
 
 ## Authors
 
