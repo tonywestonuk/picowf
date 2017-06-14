@@ -31,8 +31,7 @@ public class RemoteServiceRetriever implements ServletContextListener, Runnable{
 	private ServletContext servletContext;
 	private ScheduledExecutorService executor;
 
-	private static final String mCastAddress = "225.1.2.3";
-	private static final int port = 9223;
+
 	private MulticastSocket mcastSocket;
 
 
@@ -57,7 +56,7 @@ public class RemoteServiceRetriever implements ServletContextListener, Runnable{
 		
 		if (servletContext.getInitParameter("pico_remoteServiceUrl")!=null){
 			try {
-				mcastSocket = new MulticastSocket(port);
+				mcastSocket = new MulticastSocket(MulticastEnabler.port);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -87,8 +86,8 @@ public class RemoteServiceRetriever implements ServletContextListener, Runnable{
 				byte[] bytes= jsw.done().getBytes("utf-8");
 				
 				DatagramPacket pkt = new DatagramPacket(bytes, bytes.length);
-				pkt.setAddress(Inet4Address.getByName(mCastAddress));
-				pkt.setPort(port);
+				pkt.setAddress(MulticastEnabler.mCastAddress);
+				pkt.setPort(MulticastEnabler.port);
 				mcastSocket.send(pkt);					
 			}
 

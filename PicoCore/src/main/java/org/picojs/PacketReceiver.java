@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.Inet4Address;
+import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
@@ -29,8 +30,7 @@ import org.picojs.nanojson.JsonParserException;
 public class PacketReceiver implements ServletContextListener {
 
 	private MulticastSocket mcastSocket;
-	private static final String mCastAddress = "225.1.2.3";
-	private static final int port = 9223;
+	
 	private String picoServiceGroup;
 	private boolean debugMode=false;
 	
@@ -138,8 +138,9 @@ public class PacketReceiver implements ServletContextListener {
 		
 		
 		try {
-			mcastSocket = new MulticastSocket(port);
-			mcastSocket.joinGroup(Inet4Address.getByName(mCastAddress));
+			mcastSocket = new MulticastSocket(MulticastEnabler.port);
+			mcastSocket.setInterface(InetAddress.getLocalHost());
+			mcastSocket.joinGroup(MulticastEnabler.mCastAddress);
 			mcastSocket.setSoTimeout(100); 
 		} catch (IOException e) {
 			throw new RuntimeException(e);

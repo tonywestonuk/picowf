@@ -21,8 +21,7 @@ import org.picojs.nanojson.JsonWriter;
 @WebListener
 public class PacketSender implements ServletContextListener{
 
-	private static final String mCastAddress = "225.1.2.3";
-	private static final int port = 9223;
+
 	private boolean shutdownFlag=false;
 
 	private ServletContext servletContext;
@@ -34,7 +33,7 @@ public class PacketSender implements ServletContextListener{
 	{
 		uniqueKey = UUID.randomUUID();
 		try {
-			mcastSocket = new MulticastSocket(port);
+			mcastSocket = new MulticastSocket(MulticastEnabler.port);
 		} catch (IOException err) {
 			throw new RuntimeException(err);
 		}
@@ -68,8 +67,8 @@ public class PacketSender implements ServletContextListener{
 			byte[] bytes= jbld.done().getBytes("utf-8");
 			
 			DatagramPacket pkt = new DatagramPacket(bytes, bytes.length);
-			pkt.setAddress(Inet4Address.getByName(mCastAddress));
-			pkt.setPort(port);
+			pkt.setAddress(MulticastEnabler.mCastAddress);
+			pkt.setPort(MulticastEnabler.port);
 			mcastSocket.send(pkt);
 
 		} catch (Exception err) {
