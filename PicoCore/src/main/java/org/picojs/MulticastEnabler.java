@@ -7,7 +7,7 @@ import java.net.UnknownHostException;
 
 public class MulticastEnabler {
 
-	public static InetAddress mCastAddress =init();
+	public static final InetAddress mCastAddress =init();
 	public static final int port = 9223;
 
 	
