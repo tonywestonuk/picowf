@@ -13,7 +13,6 @@ public class MulticastEnabler {
 	
 	private static InetAddress init(){
 		try {
-			System.out.println("xxxxxxxx*sdkjflsdfhlsdfhu********");
 			Runtime.getRuntime().exec("route add -net 224.0.0.0/24 -interface lo0".split(" "));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
