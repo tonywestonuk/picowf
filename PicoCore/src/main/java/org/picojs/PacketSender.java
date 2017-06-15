@@ -58,7 +58,7 @@ public class PacketSender implements ServletContextListener{
 			jbld.value("rootUrl", serverUrl+ servletContext.getContextPath());			
 			while (en.hasMoreElements()) {
 				String parm = (String) en.nextElement();
-				if (parm.startsWith("pico_"))
+				if (parm.startsWith("pico_") && !parm.equals("pico_serverUrl"))
 					jbld.value(parm.substring(5), servletContext.getInitParameter(parm));			
 				}
 			}
@@ -114,8 +114,8 @@ public class PacketSender implements ServletContextListener{
 		servletContext=arg0.getServletContext();
 		servletContext.setAttribute("packetSender", this);	
 
-		if (servletContext.getInitParameter("serverUrl")!=null){
-			serverUrl=servletContext.getInitParameter("serverUrl");
+		if (servletContext.getInitParameter("pico_serverUrl")!=null){
+			serverUrl=servletContext.getInitParameter("pico_serverUrl");
 		}
 			
 	
