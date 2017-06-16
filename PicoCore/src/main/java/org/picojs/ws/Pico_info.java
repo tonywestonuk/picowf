@@ -31,12 +31,12 @@ public class Pico_info extends HttpServlet{
 		Enumeration<String> en =  req.getServletContext().getInitParameterNames();
 		while (en.hasMoreElements()) {	
 			String parm = (String) en.nextElement();
-			if (parm.startsWith("pico_")){
+			if (parm.startsWith("pico_") && !parm.equals("pico_serverUrl")){
 				jbld.value(parm, req.getServletContext().getInitParameter(parm));
 			}
 		}
 		
-		String serverURL = req.getServletContext().getInitParameter("serverUrl");		
+		String serverURL = req.getServletContext().getInitParameter("pico_serverUrl");		
 		jbld.value("pico_serverUrl",serverURL+req.getContextPath());	
 	
 		jbld.end();
