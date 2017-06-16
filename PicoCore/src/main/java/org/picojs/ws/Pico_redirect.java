@@ -29,7 +29,6 @@ private PacketReceiver pr;
 		String serviceType=req.getAttribute("javax.servlet.forward.request_uri").toString();
 		
 		serviceType=serviceType.substring(serviceType.lastIndexOf("/")+1,serviceType.length()-14);
-			
 		
 		ConcurrentSkipListMap<String, Map<String, String>> map = pr.getPacketCache();	
 		for (Entry<String, Map<String, String>> e:map.entrySet()){

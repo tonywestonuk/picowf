@@ -34,7 +34,7 @@ private PacketReceiver pr;
 		
 		jbld.object().array("services");
 		
-		ConcurrentSkipListMap<String, Map<String, String>> map = pr.getPacketCache();	
+		Map<String, Map<String, String>> map = pr.getPacketCache();	
 		for (Entry<String, Map<String, String>> e:map.entrySet()){
 			jbld.object();
 			for (Entry<String,String> ee:e.getValue().entrySet()){
