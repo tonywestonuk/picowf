@@ -35,9 +35,11 @@ private PacketReceiver pr;
 			if (serviceType.equals(e.getValue().get("serviceType"))){
 				String rootUrl=e.getValue().get("rootUrl");
 				if (req.getParameter("path")!=null){
-					rootUrl+="/"+req.getParameter("path");
+					if (rootUrl.endsWith("/"))
+						rootUrl+=req.getParameter("path");
+					else
+						rootUrl+="/"+req.getParameter("path");
 				}
-				
 				resp.sendRedirect(rootUrl);
 				return;
 			}	
