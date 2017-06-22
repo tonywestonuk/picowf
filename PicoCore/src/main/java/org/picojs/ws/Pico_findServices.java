@@ -1,6 +1,8 @@
 package org.picojs.ws;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentSkipListMap;
@@ -35,7 +37,17 @@ private PacketReceiver pr;
 		jbld.object().array("services");
 		
 		Map<String, Map<String, String>> map = pr.getPacketCache();	
+		
+		HashSet<String> serviceTypes = new HashSet<>();
+		
+		
 		for (Entry<String, Map<String, String>> e:map.entrySet()){
+			String serviceType=e.getValue().get("serviceType");
+			
+			if (serviceTypes.contains(serviceType)) continue;
+			serviceTypes.add(serviceType);
+			
+			
 			jbld.object();
 			for (Entry<String,String> ee:e.getValue().entrySet()){
 				jbld.value(ee.getKey(), ee.getValue());

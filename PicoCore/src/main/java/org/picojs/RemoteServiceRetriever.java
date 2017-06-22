@@ -70,7 +70,7 @@ public class RemoteServiceRetriever implements ServletContextListener, Runnable{
 	@Override
 	public void run() {
 		try {
-			URL url = new URL(servletContext.getInitParameter("pico_remoteServiceUrl"));
+			URL url = new URL(servletContext.getInitParameter("pico_remoteServiceUrl")+"/findServices.pico");
 			HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 			
 			

@@ -139,7 +139,8 @@ public class PacketReceiver implements ServletContextListener {
 		
 		try {
 			mcastSocket = new MulticastSocket(MulticastEnabler.port);
-			mcastSocket.setInterface(InetAddress.getLocalHost());
+			//mcastSocket.setInterface(InetAddress.getLocalHost());
+			System.out.println(MulticastEnabler.mCastAddress);
 			mcastSocket.joinGroup(MulticastEnabler.mCastAddress);
 			mcastSocket.setSoTimeout(100); 
 		} catch (IOException e) {
