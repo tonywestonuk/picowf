@@ -1,0 +1,5 @@
+<Context>
+	<Parameter name="pico_serviceType" value="picotag"/>
+	<Parameter name="pico_debug" value="true"/>
+	
+</Context>
